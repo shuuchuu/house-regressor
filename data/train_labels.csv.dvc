@@ -1,0 +1,12 @@
+md5: c61c5f9a71344f162e95d9ececc2a015
+frozen: true
+deps:
+- path: processed/train_labels.csv
+  repo:
+    url: git@github.com:m09/dataset-ames.git
+    rev_lock: 1ad7b7fe390ed0e44a1a7451c4acae06c8bf8835
+outs:
+- md5: a931b59ce01fe1057f072ab7f046a094
+  size: 16312
+  hash: md5
+  path: train_labels.csv

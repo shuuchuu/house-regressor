@@ -1,0 +1,4 @@
+test_data_path: data/train_data.csv
+training_data_path: data/train_data.csv
+training_labels_path: data/train_labels.csv
+kept_variance: 0.99

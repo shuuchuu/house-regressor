@@ -1,0 +1,13 @@
+stages:
+  train:
+    cmd: house-regressor train ${training_data_path} ${training_labels_path} --kept-variance ${kept_variance}
+    deps:
+      - ${training_data_path}
+      - ${training_labels_path}
+      - house_regressor/__init__.py
+      - house_regressor/cli.py
+      - house_regressor/training.py
+    params:
+      - training_data_path
+      - training_labels_path
+      - kept_variance

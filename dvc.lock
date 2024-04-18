@@ -1,0 +1,31 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: house-regressor train data/train_data.csv data/train_labels.csv --kept-variance
+      0.99
+    deps:
+    - path: data/train_data.csv
+      hash: md5
+      md5: 3ea85988c87dc54079b4a5d85c3e2cc7
+      size: 1872694
+    - path: data/train_labels.csv
+      hash: md5
+      md5: a931b59ce01fe1057f072ab7f046a094
+      size: 16312
+    - path: house_regressor/__init__.py
+      hash: md5
+      md5: d41d8cd98f00b204e9800998ecf8427e
+      size: 0
+    - path: house_regressor/cli.py
+      hash: md5
+      md5: b3d9c053b41569cccc90e643fe558126
+      size: 1915
+    - path: house_regressor/training.py
+      hash: md5
+      md5: e5572e3eda63f6b6dc73ef51a454ad5f
+      size: 2124
+    params:
+      params.yaml:
+        kept_variance: 0.99
+        training_data_path: data/train_data.csv
+        training_labels_path: data/train_labels.csv
