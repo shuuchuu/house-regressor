@@ -1,51 +1,52 @@
-[tool.poetry]
-authors = ["m09 <142691+m09@users.noreply.github.com>"]
+[project]
+authors = [
+  {name = "m09", email = "142691+m09@users.noreply.github.com"},
+]
+dependencies = [
+  "dvc >= 3",
+  "dvc-s3 >= 3",
+  "evidently >= 0.4",
+  "fastapi >= 0.115",
+  "mlflow >= 2",
+  "pandas >= 2",
+  "scikit-learn >= 1",
+]
 description = ""
 license = "Apache-2.0"
 name = "house-regressor"
 readme = "README.md"
+requires-python = ">= 3.12"
 version = "0.1.0"
 
-[tool.poetry.dependencies]
-dvc = "^3"
-dvc-s3 = "^3"
-evidently = "^0.4"
-fastapi = "^0.110"
-mlflow = "^2"
-pandas = "^2"
-python = "^3.10"
-scikit-learn = "^1"
+[dependency-groups]
+dev = [
+  "mypy >= 1",
+  "pytest >= 8",
+  "ruff >= 0.8",
+]
 
-[tool.poetry.group.dev.dependencies]
-black = "*"
-flake8 = "*"
-flake8-bugbear = "*"
-flake8-new-union-types = "*"
-flake8-pep585 = "*"
-isort = "*"
-mypy = "*"
-pylint = "*"
-pytest = "*"
-
-[tool.poetry.scripts]
+[project.scripts]
 house-regressor = "house_regressor.cli:main"
 
-[tool.isort]
-profile = "black"
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = ["D203", "D213"]
+preview = true
+select = ["A", "B", "C", "D", "DOC", "E", "EM", "F", "N", "PIE", "PTH", "RET", "RUF", "SIM", "SLF", "UP", "W"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.pep8-naming]
+ignore-names = ["X", "X_*", "Y", "Y_*"]
 
 [tool.mypy]
 disallow_untyped_defs = true
 ignore_missing_imports = true
 strict_optional = true
 
-[tool.pylint."MASTER"]
-jobs = 0
-load-plugins = "pylint.extensions.docparams"
-
-[tool.pylint."MESSAGES CONTROL"]
-disable = "all"
-enable = ["missing-param-doc", "differing-param-doc", "differing-type-doc", "missing-return-doc"]
-
 [build-system]
-build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core"]
+build-backend = "hatchling.build"
+requires = ["hatchling"]

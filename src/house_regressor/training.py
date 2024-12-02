@@ -1,3 +1,5 @@
+"""Entraînement et export d'un modèle de prédiction."""
+
 from pandas import read_csv
 from sklearn.decomposition import PCA
 from sklearn.ensemble import RandomForestRegressor
@@ -10,8 +12,7 @@ def train_model(
     training_labels_path: str,
     kept_variance: float,
 ) -> None:
-    """
-    Entraînement d'un modèle de forêt d'arbres aléatoires de régression.
+    """Entraînement d'un modèle de forêt d'arbres aléatoires de régression.
 
     Args:
         training_data_path: Chemin du CSV des données d'entraînement.
@@ -34,4 +35,4 @@ def train_model(
     rfr = RandomForestRegressor()
     rfr.fit(X_pca, y_train)
     # Calcul du r2 sur la validation
-    val_r2 = rfr.score(pca.transform(standard_scaler.transform(X_test.values)), y_test)
+    rfr.score(pca.transform(standard_scaler.transform(X_test.values)), y_test)
