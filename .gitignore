@@ -5,3 +5,5 @@ __pycache__/
 .vscode/
 dist/
 *.egg-info
+
+creds.env

@@ -2,7 +2,15 @@
 authors = [
   {name = "m09", email = "142691+m09@users.noreply.github.com"},
 ]
-dependencies = []
+dependencies = [
+  "dvc >= 3",
+  "dvc-s3 >= 3",
+  "evidently >= 0.4",
+  "fastapi >= 0.115",
+  "mlflow >= 2",
+  "pandas >= 2",
+  "scikit-learn >= 1",
+]
 description = "Prédiction des prix de vente de maisons."
 homepage = "https://github.com/shuuchuu/house-regressor"
 license = "Apache-2.0"
@@ -11,6 +19,9 @@ name = "house-regressor"
 readme = "README.md"
 requires-python = ">= 3.12"
 version = "0.1.0"
+
+[project.scripts]
+house-regressor = "house_regressor.cli:main"
 
 [dependency-groups]
 dev = [
@@ -34,6 +45,9 @@ select = ["A", "B", "C", "D", "DOC", "E", "EM", "F", "I", "N", "PIE", "PTH", "RE
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.ruff.lint.pep8-naming]
+ignore-names = ["X", "X_*", "Y", "Y_*"]
 
 [build-system]
 build-backend = "uv_build"
